@@ -1,0 +1,73 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+// バーガーメニュー設定
+.translateNav {
+    transform: translateY(0);
+}
+
+.rotatoTop {
+    transform: rotate(-45deg);
+    background: #fff;
+}
+
+.rotateBottom {
+    transform: rotate(45deg) translateY(-1px);
+    background: #fff;
+}
+
+.headerNav {
+    display: none;
+}
+
+.headerName {
+    opacity: 1;
+    z-index: 50;
+    pointer-events: auto;
+    margin-top: 0;
+    transition: .4s;
+}
+
+// menuのアニメーション
+.menuMove:nth-child(1) {
+    opacity: 0;
+    animation: sub_anime 1s forwards .5s;
+}
+
+.menuMove:nth-child(2) {
+    opacity: 0;
+    animation: sub_anime 1s forwards .6s;
+}
+
+.menuMove:nth-child(3) {
+    opacity: 0;
+    animation: sub_anime 1s forwards .7s;
+}
+
+.menuMove:nth-child(4) {
+    opacity: 0;
+    animation: sub_anime 1s forwards .8s;
+}
+
+.imgMove {
+ animation: menu_scale_anime 2s forwards;
+
+}
+
+// バーガーメニュー中bodyのスクロールストップ
+.scrollOff {
+    overflow: hidden;
+}
+
+// スクロールでヘッダーのnav/logoが消える
+.noneNav,
+.noneLogo {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.showLogo {
+    opacity: 1;
+    pointer-events: all;
+}
