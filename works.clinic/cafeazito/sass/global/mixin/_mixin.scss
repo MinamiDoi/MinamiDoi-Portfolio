@@ -1,0 +1,59 @@
+// settingフォルダの変数を読み込みます
+
+@use "../setting" as *;
+
+// sectionTTl
+@mixin ttl {
+    font-family: $ttl;
+    color: $txt;
+    font-size: 70px;
+    font-weight: inherit;
+    line-height: 1;
+    letter-spacing: 0.05em;
+}
+
+// sectionTTlの装飾文字
+@mixin deco {
+    font-family: $deco;
+    color: $txt;
+    font-size: 35px;
+}
+
+// 日本語文章のスタイリング
+@mixin txtJa {
+    font-family: $txtJa;
+    font-size: 17px;
+    color: $txt;
+    letter-spacing: 0.03em;
+    line-height: 2.6;
+}
+
+// リンクボタンの下線と守るの装飾 線 
+// ※__linkの方につける
+@mixin before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 91%;
+    height: 1px;
+    background-color: $txt;
+    transform: scale(1.1);
+    transform-origin: left top;
+    transition: transform 1s;
+}
+
+// リンクボタンの下線と守るの装飾 円
+// ※__linkの方につける
+@mixin after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid $txt;
+    border-radius: 50%;
+}
