@@ -1,0 +1,751 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+
+.opening {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    pointer-events: none;
+    animation: op 1s .7s forwards;
+}
+
+.works {
+
+    &__top__column {
+        width: 85vw;
+        margin: 0 auto;
+        position: relative;
+        margin-bottom: 16vw;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 10vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 70vw;
+            margin-bottom: 8.2vw;
+        }
+    }
+
+    &__container {
+        margin-top: 52vw;
+
+        @media screen and (min-width: 768px) {
+            margin-top: 37vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            margin-top: 24vw;
+        }
+    }
+
+    &__ttl {
+        opacity: 0;
+        animation: name_anime 1s forwards .4s;
+        padding-bottom: 15px;
+        @include aw;
+        font-weight: inherit;
+        line-height: 1;
+        font-size: calc(60px + (92 - 60) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            font-size: calc(92px + (123 - 92) * (100vw - 768px) / (1024 - 768));
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 15px;
+            font-size: calc(107px + (200 - 107) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__nav {
+        opacity: 0;
+        animation: name_anime 1s forwards 1s;
+    }
+
+    &__ul {
+        display: flex;
+        gap: 5%
+    }
+
+    &__list {
+        @media screen and (min-width: 1024px) {
+            :hover {
+                color: #222;
+            }
+        }
+    }
+
+    &__link {
+        display: block;
+        padding: 5px 0;
+        @include txt;
+        color: $gray;
+        font-size: calc(15px + (13 - 15) * (100vw - 375px) / (768 - 375));
+        text-decoration: none;
+        transition: .3s;
+
+        @media screen and (min-width: 768px) {
+            font-size: 15px;
+        }
+    }
+
+
+    // クルクル
+    &__circle {
+        position: absolute;
+        top: -100px;
+        right: 0;
+        width: calc(75px + (150 - 75) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            width: calc(92px + (122 - 92) * (100vw - 768px) / (1024 - 768));
+            top: -2vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: calc(122px + (192 - 122) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__circle__link {
+        cursor: pointer;
+    }
+
+    &__arrow__svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        height: 18.5px;
+        opacity: 0;
+        animation: opArrow 1.5s forwards .9s;
+
+        @media screen and (min-width: 768px) {
+            height: 2.3vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            height: 1.5vw;
+        }
+    }
+
+    &__absolute {
+        position: relative;
+        opacity: 0;
+        animation: opCircle 1s ease-out forwards .7s;
+        transition: 1s;
+    }
+
+    &__scroll__img {
+        display: block;
+        width: 100%;
+        animation: rotation 25s linear infinite;
+    }
+}
+
+// website
+.website {
+
+    &__inner {
+        width: 85vw;
+        margin: 0 auto;
+
+        @media screen and (min-width: 1024px) {
+            width: 70vw;
+        }
+    }
+
+    &__ttl {
+        display: inline-block;
+        padding-bottom: 8vw;
+        @include aw;
+        font-size: calc(48px + (79 - 48) * (100vw - 375px) / (1920 - 375));
+        font-weight: inherit;
+        line-height: 1;
+
+        opacity: 0;
+        animation: name_anime 1s forwards 1s;
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 6.5vw;
+            font-size: calc(79px + (86 - 79) * (100vw - 768px) / (1024 - 768));
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 2.6vw;
+            font-size: 80px;
+        }
+    }
+}
+
+// website banner 作品スタイリング
+.works {
+
+    &__column {
+
+        @media screen and (min-width: 768px) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 10vw;
+        }
+    }
+
+    &__box {
+        padding-bottom: 7vw;
+        opacity: 0;
+        animation: contents_anime 1s forwards 1s;
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 5vw;
+            width: 26vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 22vw;
+        }
+    }
+
+    &__pic {
+        width: 85vw;
+        overflow: hidden;
+
+        @media screen and (min-width: 768px) {
+            width: 26vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 22vw;
+        }
+    }
+
+    &__item__link {
+
+        @media screen and (min-width: 1024px) {
+            &:hover .works__item__img {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    &__item__img {
+        display: block;
+        width: 100%;
+        transition: 1s;
+    }
+
+    &__txt__set {
+        padding: 20px 0 20px 0;
+
+        @media screen and (min-width: 768px) {
+            padding: 20px 0;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding: 24px 0 24px 0;
+        }
+    }
+
+    &__time {
+        margin-right: 10px;
+    }
+
+    &__item__label {
+        padding-bottom: 5px;
+        @include txt;
+        font-size: 12px;
+        color: #7d7d7d;
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 10px;
+            font-size: calc(12px + (15 - 12) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__item__ttl {
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-right: 5px;
+        @include txt;
+        font-size: calc(15px + (18 - 15) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            width: 21vw;
+            padding-bottom: 0;
+            margin-right: 0;
+            font-size: 16px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 16vw;
+            font-size: calc(16px + (20 - 16) * (100vw - 1024px) / (1920 - 1024));
+        }
+
+        @media screen and (min-width: 1700px) {
+            width: auto;
+            padding-bottom: 10px;
+            margin-right: 5px;
+        }
+    }
+
+    &__item__ttl--sub {
+        display: inline-block;
+        padding-bottom: 5px;
+        @include txt;
+        font-size: calc(13px + (16 - 13) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            font-size: 14px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 10px;
+            font-size: calc(13px + (16 - 13) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__item__btn {
+        @media screen and (min-width: 1024px) {
+            :hover {
+                color: #222;
+            }
+        }
+    }
+
+    &__item__link {
+        @include txt;
+        font-size: 12px;
+        color: #7d7d7d;
+        text-decoration: none;
+        transition: .3s;
+
+        @media screen and (min-width: 768px) {
+            font-size: 14px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            font-size: calc(12px + (15 - 12) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+}
+
+// banner スタイリング
+.banner {
+
+    &__inner {
+        width: 85vw;
+        margin: 0 auto;
+        padding-top: 50px;
+
+        @media screen and (min-width: 1024px) {
+            width: 70vw;
+        }
+    }
+
+    &__ttl {
+        display: inline-block;
+        padding-bottom: 8vw;
+        @include aw;
+        font-size: calc(48px + (79 - 48) * (100vw - 375px) / (1920 - 375));
+        font-weight: inherit;
+        line-height: 1;
+        opacity: 0;
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 6.8vw;
+            font-size: calc(79px + (86 - 79) * (100vw - 768px) / (1024 - 768));
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 2.6vw;
+            font-size: 80px;
+        }
+    }
+
+    &__column {
+        margin-bottom: 16vw;
+
+        @media screen and (min-width: 768px) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        @media screen and (min-width: 1024px) {
+            margin-bottom: 10vw;
+        }
+    }
+
+    &__box {
+        padding-bottom: 7vw;
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 5vw;
+            width: 26vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 0;
+            width: 21.2vw;
+        }
+    }
+
+    &__pic {
+        width: 100%;
+    }
+
+    &__img {
+        display: block;
+    }
+
+    &__txt__set {
+        padding: 10px 10px 10px 0;
+
+        @media screen and (min-width: 1024px) {
+            padding: 10px 20px 10px 0;
+        }
+    }
+
+    &__label {
+        padding-bottom: 5px;
+        @include txt;
+        font-size: 12px;
+        color: #7d7d7d;
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 10px;
+            font-size: calc(12px + (15 - 12) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__ttl__sub {
+        padding-bottom: 5px;
+        @include txt;
+        font-size: calc(15px + (18 - 15) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            font-size: 16px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            font-size: calc(16px + (20 - 16) * (100vw - 1024px) / (1920 - 1024));
+        }
+
+        @media screen and (min-width: 1700px) {
+            padding-bottom: 10px;
+            margin-right: 5px;
+        }
+    }
+
+    &__txt {
+        padding-bottom: 5px;
+        @include txt;
+        font-size: calc(12px + (17 - 12) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 10px;
+            font-size: calc(10px + (13 - 10) * (100vw - 768px) / (1024 - 768));
+        }
+
+        @media screen and (min-width: 1024px) {
+            font-size: calc(14px + (16 - 14) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+}
+
+// Contact
+.contact {
+    margin-bottom: 6vw;
+
+    &__inner {
+        width: 85vw;
+        margin: 0 auto;
+
+        @media screen and (min-width: 1024px) {
+            display: none;
+        }
+    }
+
+    &__ttl__column {
+        @media screen and (min-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 9vw;
+        }
+    }
+
+    &__ttl {
+        padding-bottom: 30px;
+        @include aw;
+        font-weight: inherit;
+        line-height: 1;
+        font-size: calc(60px + (79 - 60) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 0;
+            font-size: calc(79px + (85 - 79) * (100vw - 768px) / (1024 - 768));
+        }
+    }
+
+    &__ttl__box {
+        padding-top: 15px;
+        margin-bottom: 15px;
+
+        @include txt;
+        font-size: calc(14px + (16 - 14) * (100vw - 375px) / (1024 - 375));
+        line-height: 1.6;
+        letter-spacing: 0.03em;
+
+        @media screen and (min-width: 768px) {
+            width: 100%;
+            padding: 15px 0 0 20px;
+            margin-bottom: 0;
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+        }
+    }
+
+    // form メール
+    &__email__column {
+        padding: 40px 0;
+        border-bottom: 1px solid #e7e7e7;
+    }
+
+    &__email {
+        padding-bottom: 20px;
+        @include txt;
+        font-size: 17px;
+    }
+
+    &__email__add {
+        @include txt;
+        font-size: 17px;
+    }
+
+    // form入力欄
+    &__form {
+        padding: 30px 0 65px;
+
+        @media screen and (min-width: 1024px) {
+            padding: 40px 0 65px 0;
+        }
+    }
+
+    &__form__ttl {
+        padding-bottom: 75px;
+        @include txt;
+        font-size: 17px;
+    }
+
+    &__form__container {
+        margin-top: -25px;
+    }
+
+    &__form__column {
+        @media screen and (min-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+    }
+
+    // name address subjectの設定
+    &__form__box {
+        position: relative;
+        width: 100%;
+        padding-bottom: 10px;
+
+        @media screen and (min-width: 768px) {
+            width: 48%;
+        }
+    }
+
+    &__form__box01 {
+        position: relative;
+        width: 100%;
+        padding-bottom: 10px;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 10px;
+        }
+    }
+
+    // formの枠の設定
+    &__form__input {
+        width: 100%;
+        border: none;
+        outline: none;
+        letter-spacing: 0.03em;
+        padding: 30px 0 15px 0;
+        border-bottom: 1px solid $gray2;
+    }
+
+    // formごとの設定
+    &__form__name {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+    }
+
+    &__form__email {
+        @extend .contact__form__name;
+    }
+
+    &__form__sub {
+        @extend .contact__form__name;
+    }
+
+    // messageのボックス
+    &__form__box02 {
+        position: relative;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    // formの枠の設定
+    &__form__area {
+        width: 100%;
+        height: 200px;
+        border: none;
+        outline: none;
+        letter-spacing: 0.03em;
+        padding: 30px 0 15px 0;
+        border-bottom: 1px solid $gray2;
+    }
+
+    // formの設定
+    &__form__message {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    // 共通設定
+    &__form__en {
+        display: inline-block;
+        width: 5em;
+        @include txt;
+        font-size: 13px;
+        color: #9d9d9d;
+    }
+
+    &__form__ja {
+        display: inline-block;
+        @include txt;
+        font-size: 13px;
+        color: #9d9d9d;
+    }
+
+    // confirm btn
+    &__box03__inner {
+        width: 200px;
+        height: 60px;
+        margin: 0 0 0 auto;
+        cursor: pointer;
+    }
+
+    &__form__submit {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding-left: 26px;
+        border-radius: 100px;
+        border: none;
+        background: linear-gradient(135deg, #d39fc2, $red);
+        font-weight: 400;
+        @include txt;
+        font-size: 14px;
+        color: #fff;
+        letter-spacing: 0.08em;
+    }
+
+    // contact for PC
+    &__inner__pc {
+        display: none;
+
+        @media screen and (min-width: 1024px) {
+            display: block;
+            position: relative;
+            width: 70vw;
+            margin: 0 auto;
+            padding: 22vw 0;
+        }
+    }
+
+    &__for__pc {
+        @media screen and (min-width: 1024px) {
+            display: block;
+
+        }
+    }
+
+    &__ttl__pc {
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            justify-content: center;
+
+        }
+    }
+
+    &__link__pc {
+        @media screen and (min-width: 1024px) {
+            position: relative;
+            @include aw;
+            font-size: calc(100px + (200 - 100) * (100vw - 1024px) / (1920 - 1024));
+            text-decoration: none;
+        }
+    }
+
+    &__link__pc::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #000;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    &__link__arrow {
+        @media screen and (min-width: 1024px) {
+            display: block;
+            width: 2.5vw;
+            right: 5vw;
+            position: absolute;
+            top: 53%;
+            -webkit-transform: translateY(-50%) rotate(-90deg);
+            transform: translateY(-50%) rotate(-90deg);
+        }
+    }
+
+    &__circle__pc {
+        @media screen and (min-width: 1024px) {
+            position: absolute;
+            top: 36%;
+            left: 0;
+            width: calc(122px + (192 - 122) * (100vw - 1024px) / (1920 - 1024));
+            animation: rotation 25s linear infinite;
+        }
+    }
+
+    &__img__pc {
+        @media screen and (min-width: 1024px) {
+            display: block;
+            width: 100%;
+        }
+    }
+}

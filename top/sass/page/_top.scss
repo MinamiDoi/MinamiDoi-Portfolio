@@ -1,0 +1,1953 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+
+.main {
+    overflow: hidden;
+}
+
+.opening {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    pointer-events: none;
+    animation: op 1.5s 1.5s forwards;
+}
+
+.top {
+    @media screen and (min-width: 768px) {
+        margin-bottom: 11.5vw;
+    }
+
+    &__inner {
+        width: 85vw;
+        margin: 0 auto;
+
+        @media screen and (min-width: 1024px) {
+            width: 80vw;
+        }
+    }
+
+    &__wrap {
+        position: relative;
+        z-index: 2;
+    }
+
+    &__ttl {
+        padding-top: 140px;
+        padding-bottom: 2%;
+        overflow: hidden;
+
+        @media screen and (min-width: 768px) {
+            padding-top: 28vh;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-top: 17vw;
+        }
+    }
+
+    &__move {
+        display: inline-block;
+        @include aw;
+        font-size: calc(53px + (95 - 53) * (100vw - 375px) / (768 - 375));
+        line-height: 0.85;
+        letter-spacing: -0.09em;
+        opacity: 0;
+        transform: translate(0, 80%);
+        transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+
+        @media screen and (min-width: 768px) {
+            font-size: calc(93px + (120 - 93) * (100vw - 768px) / (1024 - 768));
+            letter-spacing: -0.06em;
+        }
+
+        @media screen and (min-width: 1024px) {
+            font-size: calc(110px + (225 - 110) * (100vw - 1024px) / (1920 - 1024));
+            letter-spacing: -0.02em;
+        }
+    }
+
+
+    &-01 {
+        animation: name_anime .8s forwards 1.8s;
+    }
+
+    &-02 {
+        animation: name_anime .8s forwards 1.85s;
+    }
+
+    &-03 {
+        animation: name_anime .8s forwards 1.9s;
+    }
+
+    &-04 {
+        animation: name_anime .8s forwards 1.95s;
+    }
+
+    &-05 {
+        animation: name_anime .8s forwards 2s;
+    }
+
+    &-06 {
+        animation: name_anime .8s forwards 2.05s;
+    }
+
+    &-07 {
+        animation: name_anime .8s forwards 2.1s;
+        padding-left: 3%;
+    }
+
+    &-08 {
+        animation: name_anime .8s forwards 2.15s;
+    }
+
+    &-09 {
+        animation: name_anime .8s forwards 2.2s;
+    }
+
+    // TOPクルクル
+    &__circle {
+        position: absolute;
+        bottom: -57px;
+        right: 0;
+        z-index: 1;
+        width: calc(75px + (150 - 75) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            width: calc(92px + (122 - 92) * (100vw - 768px) / (1024 - 768));
+            bottom: calc(166px + (177 - 166) * (100vw - 768px) / (1024 - 768));
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: calc(122px + (192 - 122) * (100vw - 1024px) / (1920 - 1024));
+            bottom: calc(133px + (169 - 133) * (100vw - 1024px) / (1920 - 1024));
+            // bottom: 133px;
+        }
+    }
+
+    &__circle__link {
+        cursor: pointer;
+    }
+
+    &__arrow__svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        height: 18.5px;
+        opacity: 0;
+        animation: opArrow 1.5s forwards 2.2s;
+
+        @media screen and (min-width: 1024px) {
+            height: 1.5vw;
+        }
+    }
+
+    &__absolute {
+        position: relative;
+        opacity: 0;
+        animation: opCircle 2.7s ease-out forwards .4s;
+        transition: 1s;
+    }
+
+    &__scroll__img {
+        display: block;
+        width: 100%;
+        animation: rotation 25s linear infinite;
+    }
+
+    // txt設定
+    &__sub__box {
+        padding-bottom: 25px;
+        animation: sub_anime 1s forwards 2.4s;
+        opacity: 0;
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 2.5em;
+        }
+    }
+
+    &__ttl__sub {
+        @include txt;
+        font-size: calc(15px + (21 - 15) * (100vw - 375px) / (768 - 375));
+        font-weight: 400;
+        letter-spacing: 0.055em;
+
+        @media screen and (min-width: 768px) {
+            display: block;
+        }
+
+        @media screen and (min-width: 1024px) {
+            display: inline-block;
+            font-size: 21px;
+        }
+
+    }
+
+    &__name,
+    &__name__sub {
+        @include txt;
+        font-size: calc(13px + (14 - 13) * (100vw - 375px) / (768 - 375));
+        line-height: 1.5;
+        font-weight: 400;
+        letter-spacing: 0.055em;
+
+        animation: name_anime 1s forwards 2.4s;
+        opacity: 0;
+
+        @media screen and (min-width: 768px) {
+            font-size: 14px;
+        }
+    }
+
+    &__mv__column {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 35px;
+
+
+        @media screen and (min-width: 768px) {
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-direction: row;
+            margin-top: calc(-8.9rem + -5vw);
+        }
+
+        @media screen and (min-width: 1024px) {
+
+            margin-top: calc(-7.5rem + -4vw);
+        }
+    }
+
+    &__txt__container {
+        width: 33vw;
+        padding: 30px 0;
+        animation: sub_anime 1s forwards 2.6s;
+        opacity: 0;
+
+        @media screen and (min-width: 768px) {
+            width: auto;
+            padding: 0;
+        }
+    }
+
+    &__txt__box {
+        display: block;
+        @include txt;
+        font-weight: 400;
+        font-size: calc(13px + (14 - 13) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 1024px) {
+            font-size: 14px;
+        }
+    }
+
+    &__mv__pic {
+        width: 84.8vw;
+        height: 119.1vw;
+        overflow: hidden;
+        animation: pic_move_anime 1s forwards 1.5s;
+
+        @media screen and (min-width: 768px) {
+            width: calc(399px + (532 - 399) * (100vw - 768px) / (1024 - 768));
+            height: 67.1vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 45vw;
+            height: 58.1vw;
+        }
+    }
+
+    &__mv__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        animation: pic_scale_anime 2.5s forwards 1.5s;
+
+        @media screen and (min-width: 1024px) {
+            width: 100%;
+        }
+    }
+
+}
+
+.about {
+    margin-bottom: 70px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 88px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        margin-bottom: 11.5vw;
+    }
+
+    &__inner {
+        margin: 0 0 40px 6vw;
+
+        @media screen and (min-width: 768px) {
+            width: 85vw;
+            margin: 0 auto;
+            margin-bottom: 11.5vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 80vw;
+        }
+    }
+
+    // about message
+    &__message__contents {
+        width: 93vw;
+        @include aw;
+        font-size: calc(27px + (60 - 27) * (100vw - 375px) / (768 - 375));
+        line-height: 1.08;
+        letter-spacing: -0.002em;
+
+        @media screen and (min-width: 768px) {
+            font-size: calc(55px + (70 - 55) * (100vw - 768px) / (1024 - 768));
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 85vw;
+            font-size: calc(70px + (115 - 70) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__message {
+        opacity: 0;
+    }
+
+    &__message-01 {
+        display: block;
+        transform: translateY(60px);
+        margin-left: -1%;
+
+        @media screen and (min-width: 1024px) {
+            margin-left: 0;
+        }
+    }
+
+    &__message-02 {
+        display: block;
+        transform: translateY(60px);
+        margin-left: 10%;
+
+        @media screen and (min-width: 768px) {
+            margin-left: 9%;
+        }
+
+        @media screen and (min-width: 1024px) {
+            margin-left: 10%;
+        }
+
+        @media screen and (min-width: 1360px) {
+            margin-left: 14%;
+        }
+    }
+
+    &__message-03 {
+        display: block;
+        transform: translateY(60px);
+        margin-left: -1%;
+
+        @media screen and (min-width: 768px) {
+            margin-left: -2%;
+        }
+
+        @media screen and (min-width: 1360px) {
+            margin-left: 2%;
+        }
+    }
+
+    &__message-04 {
+        display: block;
+        transform: translateY(60px);
+        margin-left: 4%;
+
+        @media screen and (min-width: 768px) {
+            margin-left: 7%;
+        }
+
+        @media screen and (min-width: 1024px) {
+            margin-left: 8%;
+        }
+
+        @media screen and (min-width: 1360px) {
+            margin-left: 15%;
+        }
+    }
+
+    // about me
+    &__main {
+        width: 85vw;
+        margin: 0 auto;
+
+        @media screen and (min-width: 768px) {
+            padding-top: 0;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 80vw;
+        }
+    }
+
+    &__main__column {
+        display: flex;
+        flex-direction: column-reverse;
+
+        @media screen and (min-width: 1024px) {
+            justify-content: space-between;
+            flex-direction: row;
+            margin-bottom: 11.45vw;
+        }
+    }
+
+    &__pic {
+        position: relative;
+        z-index: 1;
+        width: 52.2vw;
+        height: 73.3vw;
+        overflow: hidden;
+        margin-top: 70px;
+
+        @media screen and (min-width: 768px) {
+            width: 26.3vw;
+            height: 36.7vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 25vw;
+            height: 35vw;
+            margin-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-100px) scale(100%);
+        object-fit: cover;
+        opacity: 0;
+
+        @media screen and (min-width: 1024px) {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__main__contents {
+        @media screen and (min-width: 1024px) {
+            width: 45.9vw;
+        }
+    }
+
+    &__ttl {
+        @include aw;
+        font-size: calc(50px + (70 - 50) * (100vw - 375px) / (768 - 375));
+        font-weight: inherit;
+        padding-bottom: 20px;
+
+        @media screen and (min-width: 768px) {
+            font-size: calc(79px + (85 - 79) * (100vw - 768px) / (1023 - 768));
+            padding-bottom: 30px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            font-size: calc(71px + (83 - 71) * (100vw - 1024px) / (1920 - 1024));
+            margin-top: -39px;
+            padding-bottom: 40px;
+        }
+    }
+
+    &__txt__en {
+        padding-bottom: 50px;
+        @include txt;
+        font-size: calc(13px + (16 - 13) * (100vw - 375px) / (768 - 375));
+        line-height: 1.6;
+        letter-spacing: 0.03em;
+
+        @media screen and (min-width: 768px) {
+            font-size: 16px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 40px;
+            font-size: 15px;
+        }
+    }
+
+    &__name {
+        padding: 10px 0;
+        @include txt;
+        font-size: calc(13px + (15 - 13) * (100vw - 375px) / (768 - 375));
+        font-weight: 600;
+
+        @media screen and (min-width: 768px) {
+            font-size: 15px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 10px;
+        }
+    }
+
+    &__txt__ja {
+        padding-bottom: 25px;
+        @include txt;
+        font-size: calc(13px + (15 - 13) * (100vw - 375px) / (768 - 375));
+        line-height: 1.9;
+        letter-spacing: 0.055em;
+
+        @media screen and (min-width: 768px) {
+            font-size: 15px;
+            padding-bottom: 60px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 50px;
+        }
+    }
+
+    // about SNS icon
+    &__social__column {
+        display: flex;
+        gap: 10px;
+        padding-bottom: 25px;
+    }
+
+    &__social__icon {
+        width: 24.32px;
+    }
+
+    &__social__img {
+        width: 100%;
+    }
+
+    // about BTN
+    &__btn {
+        @media screen and (min-width: 1024px) {
+
+            :hover {
+                background-color: $red;
+                border: 1px solid $red;
+                border-radius: 100px;
+                color: #fff;
+            }
+
+            :hover .about__btn__svg {
+                fill: #fff;
+            }
+
+            :hover .about__btn__txt {
+                color: #fff;
+            }
+        }
+    }
+
+    &__btn__link {
+        @include btnLink;
+    }
+
+    &__btn__txt {
+        @include btnTxt;
+    }
+
+    &__btn__arrow {
+        display: flex;
+        justify-content: center;
+        width: 91px;
+        height: 100%;
+
+        @media screen and (min-width: 1024px) {
+            pointer-events: none;
+        }
+    }
+
+    &__btn__svg {
+        width: 20px;
+        fill: #fff;
+
+        @media screen and (min-width: 1024px) {
+            fill: #000;
+            transition: .2s;
+            pointer-events: none;
+        }
+    }
+}
+
+.kv__main--01 {
+    position: relative;
+    width: 100%;
+    height: 141vw;
+    overflow: hidden;
+    margin-bottom: 5vw;
+    margin-top: -30%;
+
+    @media screen and (min-width: 768px) {
+        height: 60vw;
+        margin-bottom: 5.5vw;
+        margin-top: calc(-13vw + -80px);
+    }
+
+    @media screen and (min-width: 1024px) {
+        height: 61vw;
+        margin-top: 0;
+    }
+}
+
+.kv--01 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-clip-path: inset(0);
+    clip-path: inset(0);
+    z-index: -1;
+}
+
+.kv--01::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../images/kv__sp--01.jpg);
+    background-position: left top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media screen and (min-width: 768px) {
+        background-position: left center;
+    }
+
+    @media screen and (min-width: 1024px) {
+        background-position: center center;
+    }
+}
+
+.deco__canvas {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10vw;
+    @include aw;
+    font-size: 24vw;
+    line-height: 1;
+    transform: translateY(60px);
+    opacity: 0;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 5.5vw;
+    }
+}
+
+// WORKS
+.works {
+    margin-bottom: 300px;
+
+    @media screen and (min-width: 1024px) {
+        margin-bottom: 23.5vw;
+    }
+
+    &__inner {
+        width: 85vw;
+        margin: 0 auto;
+        position: relative;
+
+        @media screen and (min-width: 1024px) {
+            position: static;
+            width: 80vw;
+        }
+    }
+
+    &__ttl__column {
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__ttl {
+        width: 85vw;
+        margin: 0 auto;
+        @include aw;
+        font-weight: inherit;
+        font-size: calc(60px + (79 - 60) * (100vw - 375px) / (768 - 375));
+        transform: translateY(50px);
+        opacity: 0;
+
+        @media screen and (min-width: 768px) {
+            font-size: calc(79px + (85 - 79) * (100vw - 768px) / (1024 - 768));
+        }
+
+        @media screen and (min-width: 1024px) {
+            font-size: calc(85px + (134 - 85) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    // works BTN
+    &__btn {
+        position: absolute;
+        bottom: -28vw;
+        right: 0;
+
+        @media screen and (min-width: 430px) {
+            bottom: -12vw;
+        }
+
+        @media screen and (min-width: 768px) {
+            bottom: -10vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            position: static;
+            bottom: -10vw;
+            padding-top: 34px;
+
+            :hover {
+                background-color: $red;
+                border: 1px solid $red;
+                border-radius: 100px;
+                color: #fff;
+            }
+
+            :hover .works__btn__svg {
+                fill: #fff;
+            }
+
+            :hover .works__btn__txt {
+                color: #fff;
+            }
+        }
+    }
+
+    &__btn__link {
+        @include btnLink;
+    }
+
+    &__btn__txt {
+        @include btnTxt;
+    }
+
+    &__btn__arrow {
+        display: flex;
+        justify-content: center;
+        width: 91px;
+        height: 100%;
+
+        @media screen and (min-width: 1024px) {
+            pointer-events: none;
+        }
+    }
+
+    &__btn__svg {
+        width: 20px;
+        fill: #fff;
+
+        @media screen and (min-width: 1024px) {
+            fill: #000;
+            transition: .2s;
+            pointer-events: none;
+        }
+    }
+
+    &__nav {
+        margin-bottom: 65px;
+    }
+
+    &__nav__lists {
+        display: flex;
+
+        @media screen and (min-width: 1024px) {
+            :hover {
+                @media screen and (min-width: 1024px) {
+                    color: $black;
+                }
+            }
+        }
+    }
+
+    &__nav__link {
+        padding: 0 14px 10px;
+
+        @include txt;
+        font-size: calc(14px + (15 - 14) * (100vw - 375px) / (768 - 375));
+        color: $gray;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        transition: .3s;
+
+        @media screen and (min-width: 768px) {
+            padding: 0 14px;
+        }
+    }
+
+    // 本体
+    &__contents__swiper {
+        padding-right: 3.2vw;
+        margin-right: 0;
+        overflow: visible;
+    }
+
+    &__card {
+        min-width: calc(100% + 0px);
+        max-width: calc(100% + 0px);
+
+        @media screen and (min-width: 768px) {
+            min-width: calc(38.5% + 0px);
+            max-width: calc(38.5% + 0px);
+        }
+
+        @media screen and (min-width: 1024px) {
+            min-width: calc(31.4% + 0px);
+            max-width: calc(31.4% + 0px);
+        }
+    }
+
+    &__item__pic {
+        display: block;
+        object-fit: cover;
+        overflow: hidden;
+
+        @media screen and (min-width: 1024px) {
+            &:hover .works__item__img {
+                transform: scale(1.08);
+            }
+        }
+    }
+
+    &__item__img {
+        width: 100%;
+        transition: 1s;
+    }
+
+    &__txt__set {
+        padding: 20px 0 20px 0;
+
+        @media screen and (min-width: 1024px) {
+            padding: 24px 0 24px 0;
+        }
+    }
+
+    &__time {
+        margin-right: 10px;
+    }
+
+    &__item__label {
+        padding-bottom: 5px;
+        @include txt;
+        font-size: 12px;
+        color: $gray;
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 10px;
+            font-size: calc(12px + (15 - 12) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__item__ttl {
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-right: 5px;
+        @include txt;
+        font-size: calc(15px + (16 - 15) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            width: 21vw;
+            padding-bottom: 0;
+            margin-right: 0;
+            font-size: 16px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            font-size: calc(16px + (20 - 16) * (100vw - 1024px) / (1920 - 1024));
+        }
+
+        @media screen and (min-width: 1500px) {
+            width: auto;
+            padding-bottom: 10px;
+            margin-right: 5px;
+        }
+    }
+
+    &__item__ttl--sub {
+        display: inline-block;
+        padding-bottom: 5px;
+        @include txt;
+        font-size: calc(13px + (16 - 13) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            font-size: 14px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 10px;
+            font-size: calc(13px + (16 - 13) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__item__btn {
+        @media screen and (min-width: 1024px) {
+            :hover {
+                color: $black;
+            }
+        }
+    }
+
+    &__item__link {
+        @include txt;
+        font-size: calc(14px + (15 - 14) * (100vw - 375px) / (768 - 375));
+        color: $gray;
+        text-decoration: none;
+        transition: .3s;
+
+        @media screen and (min-width: 1024px) {
+            font-size: calc(12px + (15 - 12) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+}
+
+// BOOKS
+.books {
+    position: relative;
+    margin-bottom: 21.34vw;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 14.4vw;
+    }
+
+    @media screen and (min-width: 1024px) {
+        margin-bottom: 11.46vw;
+    }
+
+    &__inner {
+        width: 85vw;
+        margin: 0 auto;
+        position: relative;
+
+        @media screen and (min-width: 1024px) {
+            width: 80vw;
+        }
+    }
+
+    &__main__column {
+        @media screen and (min-width: 768px) {
+            display: flex;
+            gap: 3.9vw;
+
+            @media screen and (min-width: 1024px) {
+                gap: 4.1vw;
+            }
+        }
+    }
+
+    &__pic {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 50px;
+        width: 84.8vw;
+        overflow: hidden;
+
+        @media screen and (min-width: 768px) {
+            display: block;
+            padding-bottom: 0;
+            width: 29vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 34.2vw;
+        }
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        transform: translateY(-100px);
+        opacity: 0;
+        object-fit: cover;
+    }
+
+    &__ttl {
+        padding-bottom: 30px;
+        @include aw;
+        font-weight: inherit;
+        line-height: 1.1;
+        font-size: calc(32px + (40 - 32) * (100vw - 375px) / (768 - 375));
+        transform: translateY(50px);
+        opacity: 0;
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 40px;
+            font-size: calc(40px + (50 - 40) * (100vw - 768px) / (1024 - 768));
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 58px;
+            font-size: calc(50px + (83 - 50) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__intro__container {
+        @media screen and (min-width: 768px) {
+            width: 61%;
+        }
+
+    }
+
+    &__intro__column {
+        display: flex;
+        gap: 10px;
+        padding-bottom: 25px;
+
+        @media screen and (min-width: 768px) {
+            gap: 15px;
+            padding-bottom: 16px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            gap: 20px;
+            padding-bottom: 30px;
+        }
+    }
+
+    &__intro__num {
+        @include txt;
+        font-size: calc(14px + (16 - 14) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            font-size: calc(16px + (17 - 16) * (100vw - 768px) / (1920 - 768));
+        }
+    }
+
+    &__intro__ttl {
+        @include txt;
+        font-weight: 600;
+        font-size: calc(11px + (14 - 11) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            font-size: calc(15px + (17 - 15) * (100vw - 768px) / (1920 - 768));
+        }
+    }
+
+    &__intro__txt {
+        @include txt;
+        line-height: 1.6;
+        font-size: calc(11px + (14 - 11) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            font-size: calc(14px + (15 - 14) * (100vw - 768px) / (1920 - 768));
+        }
+    }
+
+    &__top__circle {
+        position: absolute;
+        top: -100px;
+        left: 0;
+        width: calc(75px + (150 - 75) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            left: auto;
+            top: -50px;
+            right: 0;
+            width: calc(92px + (122 - 92) * (100vw - 768px) / (1024 - 768));
+        }
+
+        @media screen and (min-width: 1024px) {
+            top: -164px;
+            width: calc(142px + (169 - 142) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__top__circle__img {
+        animation: rotation 25s linear infinite;
+    }
+}
+
+.kv__main--02 {
+    position: relative;
+    width: 100%;
+    height: 141vw;
+    overflow: hidden;
+    margin-bottom: 22vw;
+
+    @media screen and (min-width: 768px) {
+        height: 60vw;
+        margin-bottom: 11vw;
+    }
+
+    @media screen and (min-width: 1024px) {
+        height: 61vw;
+    }
+}
+
+.kv--02 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-clip-path: inset(0);
+    clip-path: inset(0);
+    z-index: -1;
+}
+
+.kv--02::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../images/kv__sp--02.jpg);
+    background-position: left top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media screen and (min-width: 768px) {
+        background-position: left center;
+    }
+
+    @media screen and (min-width: 1024px) {
+        background-position: center center;
+    }
+}
+
+.skills {
+
+    &__mouse {
+        @media screen and (max-width: 1024px) {
+            cursor: none !important;
+        }
+
+        @media screen and (min-width: 1024px) {
+            pointer-events: none;
+            position: fixed;
+            top: -15px;
+            left: -15px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid $black;
+            border-radius: 50%;
+            transform: translate(0, 0);
+            transition: transform 0.3s ease-out;
+            z-index: 9999;
+            opacity: 0;
+        }
+    }
+
+    &__mouse__txt {
+        @media screen and (max-width: 1024px) {
+            opacity: 0;
+        }
+
+        @media screen and (min-width: 1024px) {
+            @include aw;
+            color: $black;
+            font-size: 13px;
+            line-height: 1.2em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__inner {
+        width: 85vw;
+        margin: 0 auto;
+
+        @media screen and (min-width: 1024px) {
+            width: 80vw;
+        }
+    }
+
+    &__main__column {
+        @media screen and (min-width: 768px) {
+            position: relative;
+            margin-bottom: 15vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            position: static;
+            display: flex;
+            justify-content: space-between;
+            gap: 2.3vw;
+            margin-bottom: 0;
+        }
+    }
+
+    &__main__column-01 {
+        @media screen and (min-width: 768px) {
+            position: relative;
+            margin-bottom: 15vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            position: static;
+            display: flex;
+            justify-content: space-between;
+            gap: 5.4vw;
+            margin-bottom: 0;
+        }
+    }
+
+    &__left__container {
+        @media screen and (min-width: 768px) {
+            padding-bottom: 25px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 0;
+        }
+    }
+
+    &__ttl {
+        padding-bottom: 30px;
+        @include aw;
+        font-weight: inherit;
+        line-height: 1;
+        font-size: calc(60px + (79 - 60) * (100vw - 375px) / (768 - 375));
+        transform: translateY(50px);
+        opacity: 0;
+
+        @media screen and (min-width: 768px) {
+            font-size: calc(79px + (134 - 79) * (100vw - 768px) / (1920 - 768));
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 5.1vw;
+            font-size: calc(85px + (134 - 85) * (100vw - 1024px) / (1920 - 1024));
+            transform: none;
+            opacity: 1;
+        }
+
+    }
+
+    &__left__pic {
+        width: 85.06vw;
+        height: 49.86vw;
+        overflow: hidden;
+        padding-bottom: 30px;
+
+        @media screen and (min-width: 768px) {
+            width: calc(271px + (371 - 271) * (100vw - 768px) / (1024 - 768));
+            height: calc(236px + (346 - 236) * (100vw - 768px) / (1024 - 768));
+            padding-bottom: 0;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 29vw;
+            height: 39vw;
+        }
+
+        @media screen and (min-width: 1500px) {
+            height: 570px;
+        }
+    }
+
+    &__left__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover
+    }
+
+    &__right__container {
+        @media screen and (min-width: 1024px) {
+            width: auto;
+        }
+    }
+
+    &__absolute {
+        @media screen and (min-width: 768px) {
+            position: absolute;
+            top: 89px;
+            right: 0;
+            width: 42vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            position: static;
+        }
+    }
+
+    &__absolute-01 {
+        @media screen and (min-width: 768px) {
+            position: absolute;
+            top: -20px;
+            right: 0;
+            width: 42vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            position: static;
+        }
+    }
+
+    &__sub__ttl {
+        padding-bottom: 30px;
+        @include aw;
+        font-weight: inherit;
+        font-size: calc(30px + (40 - 30) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 1.5vw;
+            font-size: calc(40px + (78 - 40) * (100vw - 1024px) / (1920 - 1024));
+        }
+
+        @media screen and (min-width: 1300px) {
+            padding-bottom: 2.7vw;
+        }
+
+    }
+
+    &__txt {
+        @include txt;
+        font-size: 12px;
+        line-height: 1.9;
+        padding-bottom: 30px;
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 0;
+        }
+
+        @media screen and (min-width: 1024px) {
+            font-size: calc(12px + (17 - 12) * (100vw - 1024px) / (1920 - 1024));
+            line-height: 1.8;
+            padding-bottom: 2vw;
+        }
+    }
+
+    &__tool {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+            display: block;
+            @include aw;
+            font-size: 30px;
+            padding-bottom: 20px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 1.5vw;
+            font-size: calc(20px + (30 - 20) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__tool-01 {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+            display: block;
+            @include aw;
+            font-size: 30px;
+            padding-bottom: 20px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 1.5vw;
+            font-size: calc(20px + (30 - 20) * (100vw - 1024px) / (1920 - 1024));
+        }
+
+    }
+
+    // toolの詳細
+    // wev deveropment SP TAB PC版
+    &__webdevelopment {
+        padding-bottom: 50px;
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 0;
+        }
+
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 9.48vw 0;
+        }
+    }
+
+    // Web design PC版
+    &__webdesign__PC {
+        display: none;
+
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 9.48vw 0;
+        }
+    }
+
+    // Other PC版
+    &__other__PC {
+        display: none;
+
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 9.48vw 0;
+        }
+    }
+
+    &__sub__column {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: calc(320px + (600 - 320) * (100vw - 375px) / (768 - 375));
+        margin: 0 auto;
+
+        @media screen and (min-width: 768px) {
+            width: 85vw;
+            margin: 0;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 45vw;
+        }
+    }
+
+    &__sub__column-01,
+    &__sub__column-02 {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0 auto;
+
+        @media screen and (min-width: 1024px) {
+            width: 45vw;
+            margin: 0;
+        }
+    }
+
+    &__tools__container {
+        width: 47%;
+        padding-bottom: 4vw;
+
+        @media screen and (min-width: 768px) {
+            width: 28.5%;
+            padding-bottom: 2vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 13vw;
+        }
+    }
+
+    &__tools__container-01 {
+        padding-bottom: 4vw;
+        width: 47%;
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 0;
+            width: 18vw;
+        }
+    }
+
+    &__tools__column {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        padding-bottom: 10px;
+    }
+
+    &__tools__column-01 {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        padding-bottom: 10px;
+
+        @media screen and (min-width: 1024px) {
+            gap: 30px;
+            padding-bottom: 1vw;
+        }
+    }
+
+    &__icon {
+        width: 45px;
+
+        @media screen and (min-width: 1024px) {
+            width: 3vw;
+        }
+    }
+
+    &__icon-01 {
+
+        @media screen and (min-width: 1024px) {
+            width: calc(55px + (75 - 55) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__img,
+    &__img-01 {
+        display: block;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    &__icon__column {
+        width: 100%;
+    }
+
+    &__icon__name {
+        @include aw;
+        font-size: 20px;
+        padding-bottom: 4px;
+
+        @media screen and (min-width: 1024px) {
+            font-size: calc(17px + (27 - 17) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__VS {
+        font-size: 18px;
+        line-height: 1;
+        width: 77%;
+    }
+
+    &__icon__txt {
+        @include txt;
+        line-height: 1.8;
+        font-size: calc(10px + (12 - 10) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            font-size: calc(12px + (17 - 12) * (100vw - 768px) / (1920 - 768));
+        }
+
+        @media screen and (min-width: 1024px) {
+            line-height: 1.6;
+            font-size: calc(12px + (17 - 12) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__icon__txt-01 {
+        @include txt;
+        line-height: 1.8;
+        font-size: calc(10px + (12 - 10) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 1024px) {
+            line-height: 1.6;
+            font-size: calc(12px + (17 - 12) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    //  Web design / other SP TAB版
+    &__ttl-01 {
+        display: none;
+
+        @media screen and (min-width: 1024px) {
+            display: block;
+            padding-bottom: 5.1vw;
+            @include aw;
+            font-weight: inherit;
+            line-height: 1;
+            font-size: calc(85px + (134 - 85) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__webdesign__TAB {
+        padding-bottom: 50px;
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 0;
+        }
+
+        @media screen and (min-width: 1024px) {
+            display: none;
+        }
+    }
+
+    &__other__TAB {
+        margin-bottom: 50px;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 0;
+        }
+
+        @media screen and (min-width: 1024px) {
+            display: none;
+        }
+    }
+}
+
+
+.deve__pic {
+    transform: translateY(50px);
+    opacity: 0;
+
+    @media screen and (min-width: 1024px) {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.design__pic,
+.other__pic {
+    transform: translateY(50px);
+    opacity: 0;
+}
+
+.deco__bottom {
+    margin-bottom: 18.7%;
+
+    @media screen and (min-width: 1024px) {
+        width: 95vw;
+        margin: 0 auto;
+        margin-bottom: 11vw;
+    }
+}
+
+.deco__thanks {
+    margin-left: 5%;
+    @include aw;
+    font-size: calc(55px + (120 - 55) * (100vw - 375px) / (768 - 375));
+    line-height: 1;
+    transform: translateY(60px);
+    opacity: 0;
+
+    @media screen and (min-width: 1024px) {
+        line-height: 0.8;
+        font-size: calc(150px + (280 - 150) * (100vw - 1024px) / (1920 - 1024));
+    }
+}
+
+.deco__viewing {
+    margin-left: 15%;
+    @include aw;
+    font-size: calc(55px + (113 - 55) * (100vw - 375px) / (768 - 375));
+    margin-top: -5%;
+    transform: translateY(60px);
+    opacity: 0;
+
+    @media screen and (min-width: 1024px) {
+        line-height: 1;
+        margin-left: 18%;
+        margin-top: 0;
+        font-size: calc(150px + (280 - 150) * (100vw - 1024px) / (1920 - 1024));
+    }
+}
+
+// Contact
+.contact {
+    margin-bottom: 6vw;
+
+    &__inner {
+        width: 85vw;
+        margin: 0 auto;
+
+        @media screen and (min-width: 1024px) {
+            width: 80vw;
+            padding-top: 11.5vw;
+        }
+    }
+
+    &__ttl__column {
+        @media screen and (min-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 9vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            align-items: end;
+            margin-bottom: 3.6vw;
+        }
+    }
+
+    &__ttl {
+        padding-bottom: 30px;
+        @include aw;
+        font-weight: inherit;
+        line-height: 1;
+        font-size: calc(60px + (79 - 60) * (100vw - 375px) / (768 - 375));
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 0;
+            font-size: calc(79px + (85 - 79) * (100vw - 768px) / (1024 - 768));
+        }
+
+        @media screen and (min-width: 1024px) {
+
+            font-size: calc(85px + (134 - 85) * (100vw - 1024px) / (1920 - 1024));
+        }
+    }
+
+    &__ttl__box {
+        padding-top: 15px;
+        margin-bottom: 15px;
+
+        @include txt;
+        font-size: calc(14px + (16 - 14) * (100vw - 375px) / (1024 - 375));
+        line-height: 1.6;
+        letter-spacing: 0.03em;
+
+        @media screen and (min-width: 768px) {
+            width: 100%;
+            padding: 15px 0 0 20px;
+            margin-bottom: 0;
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 40vw;
+            font-size: 15px;
+        }
+    }
+
+    &__note__ja {
+        @media screen and (min-width: 1024px) {
+            font-size: 16px;
+        }
+    }
+
+    // form メール
+    &__email__column {
+        padding: 40px 0;
+        border-bottom: 1px solid $gray2;
+
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            padding: 65px 0 40px 0px
+        }
+    }
+
+    &__email {
+        padding-bottom: 20px;
+        @include txt;
+        font-size: 17px;
+
+        @media screen and (min-width: 1024px) {
+            width: 15vw;
+            padding-bottom: 0;
+        }
+    }
+
+    &__email__add {
+        @include txt;
+        font-size: 17px;
+
+        @media screen and (min-width: 1024px) {
+            width: 65vw;
+        }
+    }
+
+    // form入力欄
+    &__form {
+        padding: 30px 0 65px;
+
+        @media screen and (min-width: 1024px) {
+            padding: 40px 0 65px 0;
+        }
+    }
+
+    &__main__column {
+
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            justify-content: space-between;
+            padding: 60px 0 65px 0px
+        }
+    }
+
+    &__form__ttl {
+        padding-bottom: 75px;
+        @include txt;
+        font-size: 17px;
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 0;
+            margin-top: -25px;
+            width: 15vw;
+        }
+    }
+
+    &__form__container {
+        margin-top: -25px;
+
+        @media screen and (min-width: 1024px) {
+            width: 65vw;
+        }
+    }
+
+    &__form__column {
+        @media screen and (min-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+    }
+
+    // name address subjectの設定
+    &__form__box {
+        position: relative;
+        width: 100%;
+        padding-bottom: 10px;
+
+        @media screen and (min-width: 768px) {
+            width: 48%;
+        }
+    }
+
+    &__form__box01 {
+        position: relative;
+        width: 100%;
+        padding-bottom: 10px;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 10px;
+        }
+    }
+
+    // formの枠の設定
+    &__form__input {
+        width: 100%;
+        border: none;
+        outline: none;
+        letter-spacing: 0.03em;
+        padding: 30px 0 15px 0;
+        border-bottom: 1px solid $gray2;
+
+        @media screen and (min-width: 1024px) {
+            margin-bottom: 25px;
+        }
+    }
+
+    // formごとの設定
+    &__form__name {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &__form__email {
+        @extend .contact__form__name;
+    }
+
+    &__form__sub {
+        @extend .contact__form__name;
+    }
+
+    // messageのボックス
+    &__form__box02 {
+        position: relative;
+        width: 100%;
+        margin-bottom: 40px;
+
+        @media screen and (min-width: 1024px) {
+            margin-bottom: 0;
+        }
+    }
+
+    // formの枠の設定
+    &__form__area {
+        width: 100%;
+        height: 200px;
+        border: none;
+        outline: none;
+        letter-spacing: 0.03em;
+        padding: 30px 0 15px 0;
+        border-bottom: 1px solid $gray2;
+
+        @media screen and (min-width: 1024px) {
+            padding: 32px 0;
+            margin-bottom: 45px;
+        }
+    }
+
+    // formの設定
+    &__form__message {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    // 共通設定
+    &__form__en {
+        display: inline-block;
+        width: 5em;
+        @include txt;
+        font-size: 13px;
+        color: $gray3;
+    }
+
+    &__form__ja {
+        display: inline-block;
+        @include txt;
+        font-size: 13px;
+        color: $gray3;
+    }
+
+    // confirm btn
+
+    &__form__box03 {
+        @media screen and (min-width: 1024px) {
+
+            :hover .contact__form__submit {
+                border: 1px solid $red;
+                border-radius: 100px;
+                background: $red;
+                color: #fff;
+            }
+        }
+    }
+
+    &__box03__inner {
+        width: 200px;
+        height: 60px;
+        margin: 0 0 0 auto;
+        cursor: pointer;
+
+        @media screen and (min-width: 1024px) {
+            width: 265px;
+            height: 72px;
+        }
+    }
+
+    &__form__submit {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding-left: 26px;
+        border-radius: 100px;
+        border: none;
+        background: linear-gradient(135deg, #d39fc2, $red);
+        font-weight: 400;
+        @include txt;
+        font-size: 14px;
+        color: #fff;
+        letter-spacing: 0.08em;
+
+        @media screen and (min-width: 1024px) {
+            padding-left: 39px;
+            color: #000;
+            pointer-events: none;
+            background: #fff;
+            border: 1px solid #000;
+            transition: .5s;
+        }
+    }
+
+}
