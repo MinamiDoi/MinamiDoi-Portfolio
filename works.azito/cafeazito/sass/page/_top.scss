@@ -1,0 +1,823 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+
+.body {
+    width: 100%;
+}
+
+.openning {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    background-color: #FAFAFA;
+    animation: openning 1s forwards 3s;
+    pointer-events: none;
+
+    &__copy {
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-family: $ttl;
+        font-weight: 600;
+        color: $txt;
+        font-size: 50px;
+        animation: openningTxt 3s forwards .5s;
+    }
+}
+
+.fv {
+
+    &__pic {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__img {
+        width: 100%;
+    }
+
+    &__copy--set {
+        position: absolute;
+        top: 450px;
+        left: 113px;
+        width: 667px;
+
+        font-family: $ttl;
+        line-height: 1.1;
+        color: #fff;
+    }
+
+    &__copy--main {
+        font-size: 70px;
+        padding-bottom: 10px;
+    }
+
+    &__copy--sub {
+        font-size: 15px;
+    }
+}
+
+.greeting {
+    padding-top: 195px;
+    margin-bottom: 250px;
+
+    &__column {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        gap: 45px;
+        padding-bottom: 35px;
+    }
+
+    &__ttl {
+        position: relative;
+        @include ttl;
+    }
+
+    &__ttl--sub {
+        @include deco;
+    }
+
+    &__txt {
+        @include txtJa;
+        text-align: center;
+    }
+}
+
+.about {
+    margin-bottom: 172px;
+    width: 100%;
+
+    &__column {
+        display: flex;
+        align-items: center;
+        gap: 85px;
+    }
+
+    &__pic {
+        width: 50.98vw;
+        height: 933px;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__container--right {
+        width: 717px;
+    }
+
+    &__ttl {
+        padding-bottom: 20px;
+        margin-left: -135px;
+        @include ttl;
+    }
+
+    &__ttl--sub {
+        position: relative;
+        margin-left: 57px;
+        padding-bottom: 50px;
+        width: 536px;
+        @include deco;
+    }
+
+    &__ttl--sub::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 40px;
+        left: -66px;
+        width: 1px;
+        height: 565px;
+        background-color: #919191;
+
+    }
+
+    &__txt--01 {
+        margin-left: 57px;
+        padding-bottom: 30px;
+        @include txtJa;
+        width: 536px;
+    }
+
+    &__txt--02 {
+        margin-left: 57px;
+        padding-bottom: 25px;
+        @include txtJa;
+        width: 536px;
+    }
+
+    &__btn {
+        position: relative;
+        width: 100px;
+        margin-left: auto;
+
+    }
+
+    &__link::before {
+        @include before;
+    }
+
+    &__link:hover::before {
+        transform: scale(0, 1);
+        transform-origin: right top;
+    }
+
+    &__link::after {
+        @include after;
+    }
+
+    &__link {
+        display: block;
+        width: 100%;
+        padding: 21px 21px 21px 21px;
+        text-decoration: none;
+        font-family: $txtJa;
+        font-size: 14px;
+        color: $txt;
+    }
+}
+
+.menu {
+    margin-bottom: 134px;
+
+    &__inner {
+        margin: 0 auto;
+        width: 1595px;
+    }
+
+    &__column {
+        display: flex;
+        align-items: end;
+        gap: 22px;
+        padding-bottom: 60px;
+    }
+
+    &__ttl {
+        @include ttl;
+    }
+
+    &__ttl--sub {
+        @include deco;
+
+    }
+
+    &__column--main {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-bottom: 70px;
+        width: 100%;
+    }
+
+    &__pic {
+        display: block;
+        width: 357px;
+        overflow: hidden;
+
+        :hover.menu__img {
+            transform: scale(1.2);
+        }
+
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        transition: 1s;
+    }
+
+    &__btn {
+        text-align: center;
+        padding-top: 28px;
+
+        :hover {
+            color: rgb(42, 96, 159, 0.5)
+        }
+    }
+
+    &__link {
+        font-family: $txtEn;
+        color: $txt;
+        font-size: 25px;
+        text-decoration: none;
+        transition: .5s;
+    }
+
+    &__btn--bottom {
+        position: relative;
+        width: 100px;
+        margin-left: auto;
+    }
+
+    &__link--bottom::before {
+        @include before;
+
+    }
+
+    &__link--bottom:hover::before {
+        transform: scale(0, 1);
+        transform-origin: right top;
+    }
+
+    &__link--bottom::after {
+        @include after;
+    }
+
+    &__link--bottom {
+        display: block;
+        width: 100%;
+        padding: 21px 21px 21px 21px;
+        text-decoration: none;
+        font-family: $txtJa;
+        font-size: 14px;
+        color: $txt;
+    }
+}
+
+.salon {
+    margin-bottom: 117px;
+
+    &__column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__container--left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        left: 100px;
+        width: 742px;
+        height: 528px;
+        background-color: #FAFAFA;
+    }
+
+    &__container__inner {
+        margin: 0 auto;
+        width: 489px;
+    }
+
+    &__ttl {
+        @include ttl;
+        text-align: center;
+        padding-bottom: 38px;
+    }
+
+    &__txt {
+        @include txtJa;
+    }
+
+    &__ttl--sub {
+        display: flex;
+        justify-content: end;
+        padding-bottom: 30px;
+        @include deco;
+    }
+
+    &__btn {
+        position: relative;
+        width: 100px;
+        text-align: center;
+    }
+
+    &__link::before {
+        @include before;
+
+    }
+
+    &__link:hover::before {
+        transform: scale(0, 1);
+        transform-origin: right top;
+    }
+
+    &__link::after {
+        @include after;
+    }
+
+    &__link {
+        display: block;
+        width: 100%;
+        padding: 21px 21px 21px 21px;
+        text-decoration: none;
+        font-family: $txtJa;
+        font-size: 14px;
+        color: $txt;
+    }
+
+    &__pic {
+        width: 759px;
+        margin-right: 100px;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+    }
+}
+
+.rental {
+    margin-bottom: 250px;
+
+    &__column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__container--right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+
+        width: 742px;
+        height: 528px;
+        background-color: #FAFAFA;
+    }
+
+    &__pic {
+        width: 759px;
+        margin-right: -100px;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+    }
+
+    &__container__inner {
+        margin: 0 auto;
+        width: 489px;
+    }
+
+    &__ttl {
+        @include ttl;
+        text-align: center;
+        padding-bottom: 38px;
+    }
+
+    &__txt {
+        @include txtJa;
+    }
+
+    &__ttl--sub {
+        display: flex;
+        justify-content: end;
+        padding-bottom: 30px;
+        @include deco;
+    }
+
+    &__btn {
+        position: relative;
+        width: 100px;
+        margin-left: auto;
+        text-align: center;
+    }
+
+    &__link::before {
+        @include before;
+
+    }
+
+    &__link:hover::before {
+        transform: scale(0, 1);
+        transform-origin: right top;
+    }
+
+    &__link::after {
+        @include after;
+    }
+
+    &__link {
+        display: block;
+        width: 100%;
+        padding: 21px 21px 21px 21px;
+        text-decoration: none;
+        font-family: $txtJa;
+        font-size: 14px;
+        color: $txt;
+    }
+}
+
+.news {
+    background-color: $bg;
+    padding: 100px 0 76px;
+    margin-bottom: 250px;
+    width: 100%;
+
+    &__column {
+        width: 978px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    &__ttl {
+        @include ttl;
+        color: #fff;
+        margin-top: -24px;
+        padding-bottom: 10px;
+    }
+
+    &__ttl--sub {
+        padding-left: 72px;
+        @include deco;
+        color: #fff;
+        font-size: 25px;
+    }
+
+    &__ul {
+        position: relative;
+    }
+
+    &__ul::before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: -51px;
+        margin-left: 5px;
+        width: 1px;
+        height: 176px;
+        background-color: #fff;
+    }
+
+    &__list {
+        margin-bottom: 20px;
+
+        :hover {
+            color: #ffffffa5;
+        }
+    }
+
+    &__date {
+        padding-right: 80px;
+    }
+
+    &__link {
+        padding: 3px;
+        text-decoration: none;
+        color: #fff;
+        transition: .5s;
+    }
+
+    &__btn--bottom {
+        position: relative;
+        margin-top: auto;
+        width: 100px;
+        @include txtJa;
+        text-align: center;
+    }
+
+    &__link--bottom::before {
+        @include before;
+        background-color: #fff;
+    }
+
+    &__link--bottom:hover::before {
+        transform: scale(0, 1);
+        transform-origin: right top;
+    }
+
+    &__link--bottom::after {
+        @include after;
+        border-color: #fff;
+    }
+
+    &__link--bottom {
+        display: block;
+        width: 100%;
+        padding: 21px 21px 21px 21px;
+        text-decoration: none;
+        font-family: $txtJa;
+        font-size: 14px;
+        color: #fff;
+    }
+}
+
+.insta {
+    margin-bottom: 250px;
+
+    &__column {
+        display: flex;
+        justify-content: center;
+        gap: 66px;
+    }
+
+    &__container--left {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 1%;
+        width: 780px;
+    }
+
+    &__pic {
+        width: 237px;
+    }
+
+    &__img {
+        width: 100%;
+    }
+
+    &__container--right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 560px;
+        border: 1px solid #f6f6f6;
+    }
+
+    &__inner {
+        width: 472px;
+    }
+
+    &__ttl {
+        @include ttl;
+    }
+
+    &__ttl--sub {
+        @include deco;
+        text-align: end;
+        padding-bottom: 17px;
+    }
+
+    &__txt {
+        @include txtJa;
+        padding-bottom: 50px;
+    }
+
+    &__btn {
+        position: relative;
+        width: 120px;
+        text-align: center;
+    }
+
+    &__link::before {
+        @include before;
+    }
+
+    &__link:hover::before {
+        transform: scale(0, 1);
+        transform-origin: right top;
+    }
+
+    &__link::after {
+        @include after;
+    }
+
+    &__link {
+        display: block;
+        width: 100%;
+        padding: 21px 21px 21px 21px;
+        text-decoration: none;
+        font-family: $txtJa;
+        font-size: 14px;
+        color: $txt;
+    }
+}
+
+.reservation {
+    margin-bottom: 250px;
+
+    &__inner {
+        width: 1622px;
+        margin: 0 auto;
+    }
+
+    &__column {
+        display: flex;
+        align-items: end;
+        padding-bottom: 55px;
+    }
+
+    &__ttl {
+        @include ttl;
+    }
+
+    &__ttl--sub {
+        @include deco;
+    }
+
+    &__column--main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__pic {
+        width: 561px;
+    }
+
+    &__img {
+        width: 100%;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 457px;
+        height: 547px;
+        background-color: $bg;
+    }
+
+    &__ttl--middole {
+        padding-bottom: 16px;
+        font-family: $ttl;
+        font-weight: inherit;
+        font-size: 50px;
+        letter-spacing: 0.04em;
+        color: #fff;
+    }
+
+    &__txt {
+        padding-bottom: 70px;
+        width: 182px;
+        margin: 0 auto;
+        text-align: center;
+        font-family: $txtEn;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    &__btn {
+        position: relative;
+        width: 100px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    &__link::before {
+        @include before;
+        background-color: #fff;
+    }
+
+    &__link:hover::before {
+        transform: scale(0, 1);
+        transform-origin: right top;
+    }
+
+    &__link::after {
+        @include after;
+        border-color: #fff;
+    }
+
+    &__link {
+        display: block;
+        width: 100%;
+        padding: 21px 21px 21px 21px;
+        text-decoration: none;
+        font-family: $txtJa;
+        font-size: 14px;
+        color: #fff;
+    }
+}
+
+.access {
+    margin-bottom: 250px;
+
+    &__inner {
+        margin: 0 auto;
+        padding: 63px 0 83px 0;
+        width: 1622px;
+        background-color: #FAFAFA;
+    }
+
+    &__column--ttl {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        gap: 22px;
+        padding-bottom: 60px;
+    }
+
+    &__ttl::after {
+        content: '';
+        display: block;
+        margin-top: 20px;
+        width: 220%;
+        height: 1px;
+        background-color: #919191;
+    }
+
+    &__ttl {
+        @include ttl;
+    }
+
+    &__ttl--sub {
+        @include deco;
+        padding-bottom: 20px;
+    }
+
+    &__column--main {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 1400px;
+    }
+
+    &__container--left {
+        width: 786px;
+    }
+
+    &__dl {
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 20px;
+        width: 100%;
+
+        font-family: $txtJa;
+        font-size: 17px;
+        letter-spacing: 0.03em;
+        color: $txt;
+    }
+
+    &__name {
+        width: 20%;
+        padding-bottom: 10px;
+    }
+
+    &__date {
+        width: 80%;
+        padding-bottom: 10px;
+    }
+
+    &__tel {
+        text-decoration: none;
+        color: $txt;
+        pointer-events: all;
+        transition: .5s;
+    }
+
+    dd:nth-child(4) {
+        pointer-events: none;
+    }
+
+    dd:nth-child(4):hover .access__tel {
+        color: rgb(42, 96, 159, 0.5);
+    }
+
+    &__txt {
+        font-family: $txtJa;
+        font-size: 17px;
+        letter-spacing: 0.03em;
+        line-height: 2.6;
+        color: $txt;
+        width: 100%;
+    }
+
+    &__map {
+        width: 560px;
+    }
+}

@@ -1,0 +1,24 @@
+// settingフォルダの変数を読み込みます
+
+@use "../setting" as *;
+
+@keyframes openning {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes openningTxt {
+    3% {
+        opacity: .8;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
