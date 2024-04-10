@@ -1,0 +1,444 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 20vw;
+    z-index: 50;
+
+    @media screen and (min-width: 768px) {
+        width: 100vw;
+        height: 9vw;
+    }
+
+    &__inner {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__column {
+        @include flexSB;
+        align-items: center;
+        width: 100vw;
+
+        @media screen and (min-width: 768px) {
+            height: 100%;
+        }
+    }
+
+    &__left__box {
+        height: 100%;
+        transition: .5s;
+    }
+
+    &__left__click {
+        @include flexcenter;
+        width: 20vw;
+        height: 20vw;
+       
+        @media screen and (min-width: 768px) {
+            width: 10vw;
+            height: 100%;
+        }
+    }
+
+    &__left__link {
+        display: block;
+        width: 18px;
+        height: 18px;
+        background-image: linear-gradient(135deg, #cfbbbd, #FF435A);
+        border-radius: 50%;
+
+        @media screen and (min-width: 768px) {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    // header nav
+    // バーガーメニュー
+    &__right__box {
+        display: flex;
+        justify-content: flex-end;
+        width: 20vw;
+        height: 20vw;
+
+        @media screen and (min-width: 768px) {
+            width: 10vw;
+            height: 100%;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 42vw;
+        }
+    }
+
+    &__nav {
+        transition: .5s;
+        display: none;
+
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__ul {
+        @include flexSB;
+        align-items: center;
+        opacity: 0;
+        animation: nav_anime 1s forwards 1.5s;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__nav__list {
+        @media screen and (min-width: 1024px) {
+          :hover {
+            color: $black;
+          }
+        }
+    }
+
+    &__nav__link {
+        padding: 15px 26px;
+        @include txt;
+        font-size: 13px;
+        color: $gray;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        transition: .3s;
+    }
+
+    &__menu {
+        cursor: pointer;
+    }
+
+    &__right__menu {
+        @media screen and (min-width: 768px) {
+            width: 10vw;
+            height: 100%;
+        }
+    }
+
+    &__menu__wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20vw;
+        height: 20vw;
+
+        @media screen and (min-width: 768px) {
+            width: 10vw;
+            height: 100%;
+        }
+    }
+
+    &__menu__box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    &__menu__top {
+        display: block;
+        width: 16px;
+        height: 1px;
+        background: #000;
+        transform: translateY(-1.5px);
+        transition: .6s;
+
+        @media screen and (min-width: 768px) {
+            width: 24px;
+            height: 1px;
+        }
+    }
+
+    &__menu__bottom {
+        display: block;
+        width: 16px;
+        height: 1px;
+        background: #000;
+        transform: translateY(1.5px);
+        transition: .6s;
+
+        @media screen and (min-width: 768px) {
+            width: 24px;
+            height: 1px;
+        }
+    }
+
+    &__name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 16vw;
+        height: 20vw;
+        z-index: 50;
+        opacity: 0;
+        margin-top: 10px;
+        pointer-events: none;
+
+        @media screen and (min-width: 768px) {
+            height: 9vw;
+            left: 10vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 10px;
+        }
+    }
+
+    &__name__link {
+        display: block; 
+        width: 100%;
+        @include txt;
+        font-size: 10px;
+        color: $pink2;
+        line-height: 1.8;
+        text-decoration: none;
+        cursor: pointer;
+
+        @media screen and (min-width: 1024px) {
+          font-size: 14px;
+          margin-top: 0.7vw;
+        }
+    }
+}
+
+// バーガーメニュー
+.menu {
+    transform: translateY(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    width: 100vw;
+    height: 100vh;
+    background: $red;
+    transition: .6s ease-in;
+
+    &__inner {
+        height: 100%;
+        overflow: hidden;
+        z-index: 15;
+
+        @media screen and (min-width: 768px) {
+            position: relative;
+        }
+    }
+
+    &__column__container {
+        padding-top: 2em;
+
+        @media screen and (min-width: 768px) {
+            display: flex;
+            align-items: center;
+            width: 85vw;
+            height: 100%;
+            margin: 0 auto 0 15vw;
+        }
+    }
+
+    &__pic {
+        position: absolute;
+        bottom: 14vw;
+        right: 7.5vw;
+        width: 30vw;
+        overflow: hidden;
+
+        @media screen and (min-width: 768px) {
+            position: static;
+            width: 27.5vw;
+            overflow: hidden;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 27vw;
+        }
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+    }
+
+    &__column__box {
+        padding-left: 7.5vw;
+        height: 60vh;
+        width: 100%;
+        display: block;
+        margin-top: 15vh;
+
+        @media screen and (min-width: 768px) {
+            margin-top: 0;
+            padding-left: 7vw;
+            margin-right: 7vw;
+            width: 60%;
+            height: auto;
+        }
+    }
+
+    // nav ホバーの設定
+    &__nav__lists {
+        pointer-events: none;
+    }
+
+    &__nav__link {
+        display: inline-block;
+        @include aw;
+        font-size: calc(45px + (65 - 45) * (100vw - 375px) / (768 - 375));
+        color: #fff;
+        text-decoration: none;
+        letter-spacing: -0.38rem;
+        line-height: 1.2;
+        pointer-events: all;
+
+        @media screen and (min-width: 768px) {
+            font-size: calc(50px + (60 - 50) * (100vw - 768px) / (1024 - 768));
+        }
+
+        @media screen and (min-width: 1024px) {
+            font-size: calc(60px + (110 - 60) * (100vw - 1024px) / (1920 - 1024));
+            letter-spacing: -0.55rem;
+            transition: .8s;
+        }
+    }
+
+    &__nav__lists:hover a:not(:hover) {
+        @media screen and (min-width: 1024px) {
+            color: $pink;
+        }
+    }
+
+    &__category__lists:hover a:not(:hover) {
+        @media screen and (min-width: 1024px) {
+            color: $pink;
+        }
+    }
+
+     // menu works-category
+     &__category__lists {
+        padding: 10px 0;
+        margin: -2% 0 2% 0;
+        width: 100%;
+        pointer-events: none;
+
+        @media screen and (min-width: 600px) {
+            margin-bottom: 2%;
+        }
+
+        @media screen and (min-width: 768px) {
+          margin-top: -4%;
+        }
+
+        @media screen and (min-width: 1024px) {
+          margin-top: -3%;
+        }
+    }
+
+    &__category__list {
+        display: inline-block;
+    }
+
+    &__all {
+        display: block;
+        width: 14vw;
+
+        @media screen and (min-width: 600px) {
+            display: inline-block;
+            width: auto;
+        }
+    }
+
+    &__category__link {
+        text-decoration: none;
+        @include txt;
+        font-size: calc(15px + (18 - 15) * (100vw - 375px) / (768 - 375));
+        color: #fff;
+        line-height: 1;
+        transition: .8s;
+        pointer-events: all;
+
+        @media screen and (min-width: 768px) {
+            font-size: 18px;
+        }
+    }
+
+    &__move__second {
+        display: block;
+        padding: 6px 10px;
+    }
+
+    // バーガーメニュー内のSNS
+    &__social {
+        width: 85vw;
+    }
+
+    &__social__nav {
+        position: absolute;
+        bottom: 14vw;
+        left: 0;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        margin: 0 auto;
+        padding-left: 7.5vw;
+
+        @media screen and (min-width: 768px) {
+            bottom: 0;
+            right: 0;
+            padding-right: 4vw;
+            margin: 0;
+            height: 9vw;
+        }
+    }
+
+    &__social__lists {
+        display: block;
+
+        @media screen and (min-width: 768px) {
+            padding-left: auto;
+        }
+    }
+
+    &__social__list {
+        display: block;
+        padding-top: 2px;
+        margin: 0 auto;
+
+        @media screen and (min-width: 768px) {
+            display: inline-block;
+            padding-left: 10px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            :hover {
+                @media screen and (min-width: 1024px) {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    &__social__link {
+        display: block;
+        padding: 5px 0;
+        width: 100%;
+        @include txt;
+        font-size: calc(13px + (15 - 13) * (100vw - 375px) / (1920 - 375));
+        color: $pink2;
+        text-decoration: none;
+        transition: .8s;
+    }
+}

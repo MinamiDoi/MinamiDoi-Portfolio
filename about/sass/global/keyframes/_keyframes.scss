@@ -1,0 +1,157 @@
+// settingフォルダの変数を読み込みます
+
+@use "../setting" as *;
+
+// openingの設定
+@keyframes op {
+  0% {
+      opacity: 1;
+  }
+
+  100% {
+      opacity: 0;
+  }
+}
+
+// サークルの回転
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// opening circleの回転
+@keyframes opCircle {
+  0%{
+    transform: rotate(0);
+  }
+  90% {
+    opacity: .8;
+   
+  }
+  100% {
+    transform: rotate(720deg);
+    opacity: 1;
+  }
+}
+// opening arrow
+@keyframes opArrow {
+
+  100% {
+   opacity: 1;
+  }
+}
+
+
+// headerのnav
+@keyframes nav_anime {
+  0% {
+    transform: translateY(-30%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// headerの小さい名前（.header__name）
+@keyframes header_anime {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-5%);
+  }
+}
+
+// 下から上へアニメーション 
+// topの名前
+@keyframes name_anime {
+  0% {
+    transform: translateY(80%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 下から上へアニメーション
+// topの小さい文字
+@keyframes sub_anime {
+  0% {
+    transform: translateY(30%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contents_anime {
+  0% {
+  opacity: 0;
+    transform: translateY(10%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// バーガーメニュー開いた時の写真のアニメーション
+@keyframes menu_scale_anime {
+  0% {
+    transform: scale(150%);
+  }
+
+  100% {
+    transform: scale(100%);
+  }
+}
+
+// biography / strength contents
+@keyframes ttl_anime {
+  0% {
+    transform: translateY(30%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+// about strengthページの背景文字
+@keyframes decoLoop-01 {
+  0% {
+    transform: translateX(-100%);
+}
+to {
+    transform: translateX(100%);
+}
+
+}
+
+
+@keyframes decoLoop-02 {
+  0% {
+    transform: translateX(-110%);
+}
+to {
+    transform: translateX(100%);
+}
+}
+

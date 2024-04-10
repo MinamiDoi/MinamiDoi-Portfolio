@@ -1,0 +1,76 @@
+// settingフォルダの変数を読み込みます
+
+@use "../setting" as *;
+
+// flex space between 
+@mixin flexSB {
+    display: flex;
+    justify-content: space-between;
+}
+
+// flex center
+@mixin flexcenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// TTL
+@mixin aw {
+    font-family: "aw-conqueror-didot" , "Noto Serif Display" , "noto-serif", serif;
+    font-weight: 400;
+    font-style: normal;;
+    color: #222;
+}
+
+// TXT
+@mixin txt {
+    font-family: 'nunito-sans' , 'noto-sans', "Noto Sans JP",  "hiragino-kaku-gothic-pron";
+    -webkit-font-smoothing: inherit;
+    color: #222;
+}
+
+// / ここからリンクボタン用の設定
+// link用
+@mixin btnLink {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    height: 60px;
+    margin: 0 0 0 auto;
+    background: linear-gradient(135deg, #d39fc2, $red);
+    border-radius: 100px;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+
+    @media screen and (min-width: 1024px) {
+        width: 265px;
+        height: 72px;
+        background: #fff;
+        border: 1px solid #000;
+        transition: .5s;
+        overflow: hidden;
+    }
+}
+
+// txt用
+@mixin btnTxt {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-left: 26px;
+    @include txt;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 0.08em;
+
+    @media screen and (min-width: 1024px) {
+        padding-left: 39px;
+        color: #000;
+        pointer-events: none;
+        transition: .2s;
+    }
+}
